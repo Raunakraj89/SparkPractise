@@ -1,0 +1,32 @@
+RDD = Resilient Distributed Dataset
+
+gcloud services enable dataproc.googleapis.com
+
+gcloud config set project centering-crow-359818
+
+gcloud dataproc jobs submit pyspark --cluster=wordcount --region=us-central1 gs://scripts_will_seat_here/WordCountTry.py -- gs://input_will_come_from_here/SampleTextFile.txt gs://output_will_go_here/
+
+gsutil cp C:\Users\DEll\PycharmProjects\first_try\WordCountTry.py gs://scripts_will_seat_here/WordCountTry.py
+
+gsutil cp /tmp/mycsv.csv gs://output_will_go_here/
+
+
+
+gsutil cp C:\Users\DEll\PycharmProjects\first_try\Assignment2.py gs://scripts_will_seat_here/Assignment2.py
+
+
+gcloud dataproc jobs submit pyspark --cluster=wordcount --region=us-central1 gs://scripts_will_seat_here/Assignment2.py -- gs://input_will_come_from_here/departments.csv gs://input_will_come_from_here/employees.csv gs://output_will_go_here/
+
+
+-----------------------spark-submit to VM---------------------
+spark-submit gs://scripts_will_seat_here/WordCountTry.py -- gs://input_will_come_from_here/SampleTextFile.txt gs://output_will_go_here/
+
+
+
+-------------------bq write and read---------------------
+gcloud dataproc jobs submit pyspark gs://scripts_will_seat_here/Assignment2.py --cluster=wordcount --region=us-central1 --jars gs://spark-lib/bigquery/spark-bigquery-latest_2.12.jar --driver-log-levels root=FATAL
+
+
+
+------- inline args------------------
+gcloud dataproc jobs submit pyspark gs://scripts_will_seat_here/WordCountTry.py --cluster=wc-cluster --region=us-central1 -- --arg1=gs://input_will_come_from_here/SampleTextFile.txt --arg2=gs://output_will_go_here/
