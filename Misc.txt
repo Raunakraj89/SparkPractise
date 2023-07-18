@@ -30,3 +30,7 @@ gcloud dataproc jobs submit pyspark gs://scripts_will_seat_here/Assignment2.py -
 
 ------- inline args------------------
 gcloud dataproc jobs submit pyspark gs://scripts_will_seat_here/WordCountTry.py --cluster=wc-cluster --region=us-central1 -- --arg1=gs://input_will_come_from_here/SampleTextFile.txt --arg2=gs://output_will_go_here/
+
+
+--------------------------Pub Sub practice with python---------
+python code.py ---------------this will run code.py and start pub sub with project and private key mention in code file----------------------------
