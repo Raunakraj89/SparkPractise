@@ -34,3 +34,9 @@ gcloud dataproc jobs submit pyspark gs://scripts_will_seat_here/WordCountTry.py 
 
 --------------------------Pub Sub practice with python---------
 python code.py ---------------this will run code.py and start pub sub with project and private key mention in code file----------------------------
+
+------------------------------------Pub sub with spark-----------------
+
+gcloud dataproc jobs submit pyspark --cluster=kafka-machine --region=us-east1 gs://scripts_will_seat_here_now/producer_code.py 	
+
+gcloud dataproc jobs submit pyspark --cluster=kafka-machine --region=us-east1 gs://scripts_will_seat_here_now/consumer_code.py 
